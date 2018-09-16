@@ -7,8 +7,10 @@ const router = express.Router();
 
 router.post('/',(req,res)=>{
     console.log(req.body)
-    const {email,password,name} = req.body.user;
-    const user = new User({email,name});
+    const {email,password,name,date} = req.body.user;
+    const newDate = date.split("-").reverse().join("/");
+    var birthDate = new Date(newDate)
+    const user = new User({email,name,birthDate});
     user.setPassword(password);
     user.save()
         .then(userRecord => {

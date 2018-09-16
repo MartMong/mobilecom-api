@@ -17,6 +17,9 @@ const schema = new mongoose.Schema({
     name:{
         type:String,
         require:true
+    },
+    birthDate:{
+        type: Date
     }
 },{timeStamp:true});
 
