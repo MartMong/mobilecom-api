@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 
 import user from './routes/user';
 import auth from './routes/auth';
+import product from './routes/product';
 
 
 dotenv.config();
@@ -18,6 +19,7 @@ mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true });
 
 app.use('/api/user',user);
 app.use('/api/auth',auth);
+app.use('/api/products',product);
 
 app.listen(8001,()=>{
     console.log("Running on localhost:8001")

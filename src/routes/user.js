@@ -2,6 +2,7 @@ import express from 'express';
 
 import User from '../models/User';
 import parseErrors from '../utils/parseErrors';
+import authenticate from '../middlewares/authenticate';
 
 const router = express.Router();
 
@@ -19,4 +20,16 @@ router.post('/',(req,res)=>{
         .catch(err=>res.status(400).json({errors:parseErrors(err.errors)}));
    
 })
+
+// response user detail
+router.get('/',authenticate,(req,res)=>{
+    const {email,name} = req.currentUser;
+
+    res.json({user:{email,name}});
+
+
+
+})
+
+
 export default router;
