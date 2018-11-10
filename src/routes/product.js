@@ -1,4 +1,5 @@
 import express from 'express';
+import _ from 'lodash';
 
 import Product from '../models/Product';
 
@@ -25,9 +26,19 @@ router.get('/',(req,res)=>{
             res.status(400).json({status:err})
         }
     })
+})
 
+router.get('/search',(req,res)=>{
+	const search = req.query.car
 
-
+	Product.find({brand: new RegExp(search, 'i')},(err,dataB)=>{
+		Product.find({model:new RegExp(search, 'i')},(err,dataM)=>{
+			// let data =  _.uniqBy(_.union([...dataB,...dataM]),'OnjectId')
+			let data = _.unionWith(dataB, dataM, _.isEqual)
+			console.log(data)
+			res.json({data:data})
+		})
+	})
 
 })
 
