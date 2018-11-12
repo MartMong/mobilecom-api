@@ -21,6 +21,6 @@ app.use('/api/user',user);
 app.use('/api/auth',auth);
 app.use('/api/products',product);
 
-app.listen(8001,()=>{
+app.listen(process.env.PORT||8001,()=>{
     console.log("Running on localhost:8001")
 });
