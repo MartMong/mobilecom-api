@@ -6,10 +6,9 @@
   "scripts": {
     "dev": "nodemon --exec babel-node -- src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -rf build && mkdir build",
-    "start":"npm run build && npm run start-build",
-    "build": "npm run clean && babel src -s -D -d build",
-    "start-build":"node build/index.js"
+    "clean": "rimraf build",
+    "start":"node build/index.js",
+    "build": "npm run clean && mkdir build && babel src -s -D -d build"
   },
   "author": "",
   "license": "ISC",
