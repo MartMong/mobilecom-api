@@ -8,8 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf build && mkdir build",
     "start":"npm run build && npm run start-build",
-    "build": "npm run clean && mkdir dist && babel src -s -D -d dist",
-    "start-build":"node dist/index.js"
+    "build": "npm run clean && babel src -s -D -d build",
+    "start-build":"node build/index.js"
   },
   "author": "",
   "license": "ISC",
