@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node -- src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rimraf build",
-    "start":"node build/index.js",
-    "build": "npm run clean && mkdir build && babel src -s -D -d build"
+    "prestart": "npm run -s build",
+    "start": "node dist/index.js",
+    "dev": "nodemon src/index.js --exec \"node -r dotenv/config -r babel-register\"",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && mkdir dist && babel src -s -D -d dist"
   },
   "author": "",
   "license": "ISC",
