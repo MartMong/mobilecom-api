@@ -13,16 +13,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
     "lodash": "^4.17.10",
     "mongoose": "^5.2.14",
-    "mongoose-unique-validator": "^2.0.1",
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
+    "mongoose-unique-validator": "^2.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
